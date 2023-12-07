@@ -1,0 +1,1 @@
+{"elements":{},"attributes":{"th:if":{"context":"div"},"th:text":{"context":"p"},"th:action":{"context":"form"},"sec:authorize":{"context":"th"},"th:href":{"context":"a"},"th:each":{},"th:value":{"context":"input"}}}

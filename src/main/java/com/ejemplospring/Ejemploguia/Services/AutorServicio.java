@@ -45,6 +45,12 @@ public class AutorServicio {
         
     }
     
+    public Autor getOne(String id){
+        
+        return autorRepositorio.getOne(id);
+        
+    }
+    
     public void modificarAutor(String id, String nombre) throws MiException{
         
         if (nombre==null || nombre.isEmpty()) {

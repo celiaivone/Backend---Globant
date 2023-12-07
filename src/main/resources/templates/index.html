@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Este es el index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head>
+    <body>
+        <div>TODO BIEN</div>
+        <div th:if="${exito}!=null">
+            <div>
+                <h5>Exito!</h5>
+                <p th:text="${exito}"></p>
+            </div>
+        </div>
+
+        <div th:if="${error}!=null">
+            <div>
+                <h5>Error</h5>
+                <p th:text="${error}"></p>
+            </div>
+        </div>
+    </body>
+</html>

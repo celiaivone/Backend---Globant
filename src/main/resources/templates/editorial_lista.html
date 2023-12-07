@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Id de la Editorial</th>
+                        <th scope="col">Nombre de la Editorial</th>
+
+                        
+                    </tr>    
+                </thead>  
+                
+                <tbody th:each="editorial : ${editoriales}">
+                    <tr>
+                        <th scope="row" th:text="${editorial.id}"></th>
+                        <td th:text="${editorial.nombre}"></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div th:if="${exito}!=null">
+                <div>
+                    <h5>Exito!</h5>
+                    <p th:text="${exito}"></p>
+                </div>
+            </div>
+            <div th:if="${error}!=null">
+                <div>
+                    <h5>Error</h5>
+                    <p th:text="${error}"></p>
+                </div>
+            </div>
+            <section>
+                <div>
+                    <div>
+                        <a th:href="@{/}">Volver</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

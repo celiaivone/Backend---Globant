@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Lista de Autores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Id del Autor</th>
+                        <th scope="col">Nombre del Autor</th>
+                        <th scope="col">Acciones</th>
+                    </tr>    
+                </thead>  
+                
+                <tbody th:each="autor : ${autores}">
+                    <tr>
+                        <th scope="row" th:text="${autor.id}"></th>
+                        <td th:text="${autor.nombre}"></td>
+                        <td>
+                            <a sec:authorize="hasRole('ADMIN')" th:href= "@{/autor/modificar/__${autor.id}__}"> Modificar </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div th:if="${exito}!=null">
+                <div>
+                    <h5>Exito!</h5>
+                    <p th:text="${exito}"></p>
+                </div>
+            </div>
+            
+            <div th:if="${error}!=null">
+                <div>
+                    <h5>Error</h5>
+                    <p th:text="${error}"></p>
+                </div>
+            </div>
+            
+            <section>
+                <div>
+                    <div>
+                        <a th:href="@{/}">Volver</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
+

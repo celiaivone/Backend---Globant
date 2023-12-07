@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registro de Editoriales</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            
+            <form action="/editorial/registro" method="POST">
+                
+                <div>
+                    
+                    <label>Cargar editorial</label>
+                    <div>
+                    <input type="text" name="nombre" placeholder="Nombre de la editorial">
+                    </div>
+                </div>  
+                <button type="submit">Guardar</button>
+                
+                <div th:if="${exito}!=null">
+                    <div>
+                        <h5>Exito!</h5>
+                        <p th:text="${exito}"></p>
+                    </div>
+                </div>
+                <div th:if="${error}!=null">
+                    <div>
+                        <h5>Error</h5>
+                        <p th:text="${error}"></p>
+                    </div>
+                </div>
+                
+            </form>           
+            
+            <section>
+                <div>
+                    <div>
+                        <a th:href="@{/}">Volver</a>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+        
+    </body>
+</html>

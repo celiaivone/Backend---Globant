@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registro de Libros</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <header>
+            
+            <div>
+                
+                <h2>Aquí puedes registrar un <b>libro</b></h2>
+                
+            </div>
+            
+        </header>
+        <div>
+            
+            <form action="/libro/registro" method="POST">
+                
+                <div th:if="${error != null}">
+                    
+                    <div>
+                        <h5> Error </h5>
+                        <p th:text="${error}"></p>
+                    </div>
+                    
+                </div> 
+                
+                <div th:if="${exito != null}">
+                    
+                    <div>
+                        <h5> Exito </h5>
+                        <p th:text="${exito}"></p>
+                    </div>
+                    
+                </div> 
+                
+                <div>
+                    <label>Cargar Libro</label>
+                    <div>
+                    <input type="number" name="isbn" placeholder="ISBN">
+                    </div>
+                </div>
+                            
+                <div>
+
+                    <input type="text" name="titulo" placeholder="Título del libro">
+                    
+                </div> 
+                
+                <div>
+                    
+                    <input type="number" name="ejemplares" placeholder="Número de ejemplares">
+                    
+                </div> 
+                             
+                <div>
+                    
+                    <select name="idAutor">
+                        
+                        <option> Seleccionar Autor </option>
+                        <option th:each="autor : ${autores}"
+                                th:value="${autor.id}"
+                                th:text="${autor.nombre}"
+                                />
+                        
+                    </select>
+                    
+                </div>
+                
+                <div>
+                    <select name="idEditorial"> 
+                        
+                        <option>Seleccionar Editorial</option>
+                        <option th:each="editorial : ${editoriales}"
+                                th:value="${editorial.id}" 
+                                th:text="${editorial.nombre}"
+                                />
+                    </select>
+                    
+                </div> 
+                
+                <button type="submit">Guardar</button>
+                
+            </form>
+            
+            
+            <div>
+                <div>
+                    <a th:href="@{/}">Volver</a>
+                </div>
+            </div>
+            
+        </div>
+        
+    </body>
+</html>

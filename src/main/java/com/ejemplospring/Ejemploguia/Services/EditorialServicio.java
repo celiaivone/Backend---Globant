@@ -43,6 +43,12 @@ public class EditorialServicio {
         
     }
     
+    public Editorial getOne(String id){
+        
+        return editorialRepositorio.getOne(id);
+        
+    }
+    
     public void modificarEditorial(String id, String nombre) throws MiException{
         
         if (nombre==null || nombre.isEmpty()) {
